@@ -275,3 +275,38 @@
         -webkit-backdrop-filter: none !important;
     }
 }
+
+
+/* Фикс для fixed кнопок на мобильных */
+@media (max-width: 767px) {
+    .theme-toggle,
+    .lang-toggle,
+    .lang-selector,
+    .scroll-top-btn {
+        position: fixed !important;
+        will-change: transform;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Убираем hover эффекты на touch устройствах */
+    @media (hover: none) {
+        .theme-toggle:hover,
+        .lang-toggle:hover,
+        .scroll-top-btn:hover {
+            transform: none;
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.9);
+        }
+        
+        .lang-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        .scroll-top-btn:active {
+            transform: scale(0.9);
+        }
+    }
+}
