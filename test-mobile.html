@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест мобильного меню</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-menu-btn {
+            background: linear-gradient(135deg, #E8B4BC, #B8D8E8);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .nav-list {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            flex-direction: column;
+            padding: 80px 20px;
+            overflow-y: auto;
+            z-index: 1000;
+            list-style: none;
+        }
+        
+        .nav-list.active {
+            display: flex;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 1.2rem;
+            margin: 0.5rem 0;
+            background: rgba(232, 180, 188, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        
+        .theme-toggle, .lang-toggle, .scroll-top {
+            position: fixed !important;
+            background: linear-gradient(135deg, #E8B4BC, #B8D8E8);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 998;
+        }
+        
+        .theme-toggle { bottom: 20px; right: 20px; }
+        .lang-toggle { bottom: 80px; right: 20px; border-radius: 20px; padding: 0.6rem 1rem; }
+        .scroll-top { bottom: 150px; right: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <div>Лого</div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-list" id="navList">
+            <li><a href="#" class="nav-link">Главная</a></li>
+            <li><a href="#" class="nav-link">Париж</a></li>
+            <li><a href="#" class="nav-link">Швейцария</a></li>
+            <li><a href="#" class="nav-link">Токио</a></li>
+            <li><a href="#" class="nav-link">Греция</a></li>
+            <li><a href="#" class="nav-link">Бали</a></li>
+            <li><a href="#" class="nav-link">Нью-Йорк</a></li>
+            <li><a href="#" class="nav-link">Исландия</a></li>
+            <li><a href="#" class="nav-link">О нас</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <h1>Тест мобильного меню</h1>
+        <p>Нажми на кнопку ☰ чтобы открыть меню</p>
+        <p style="margin-top: 1000px;">Прокрути вниз чтобы увидеть кнопки</p>
+    </div>
+    
+    <button class="theme-toggle">🌙</button>
+    <button class="lang-toggle">🌐</button>
+    <button class="scroll-top">↑</button>
+    
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('navList');
+            const btn = document.querySelector('.mobile-menu-btn');
+            navList.classList.toggle('active');
+            btn.innerHTML = navList.classList.contains('active') ? '✕' : '☰';
+        }
+    </script>
+</body>
+</html>
