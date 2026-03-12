@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - My Travel Diary | Команда путешественников</title>
+    <meta name="description" content="Познакомьтесь с нашей командой путешественников. Читайте отзывы о путешествиях и делитесь своим опытом.">
+    <meta name="keywords" content="команда путешественников, отзывы о путешествиях, опыт путешествий">
+    <meta name="author" content="Дьякова Наталия">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://my-travel-diary.com/about.html">
+    <meta property="og:title" content="О нас - My Travel Diary">
+    <meta property="og:description" content="Познакомьтесь с нашей командой путешественников">
+    <meta property="og:image" content="https://my-travel-diary.com/images/logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://my-travel-diary.com/about.html">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/main.css?v=4">
+    <link rel="stylesheet" href="css/components.css?v=4">
+    <link rel="stylesheet" href="css/responsive.css?v=4">
+    <link rel="stylesheet" href="css/about.css">
+    <script src="js/language.js" defer></script>
+    <script src="js/complete-translations.js" defer></script>
+    <script src="js/theme-and-animations.js" defer></script>
+    <script src="js/reviews.js" defer></script>
+</head>
+<body>
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="My Travel Diary Logo" class="logo-image">
+            </a>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="travel-1.html" class="nav-link">Париж</a></li>
+                <li><a href="travel-2.html" class="nav-link">Швейцария</a></li>
+                <li><a href="travel-3.html" class="nav-link">Токио</a></li>
+                <li><a href="travel-4.html" class="nav-link">Греция</a></li>
+                <li><a href="travel-5.html" class="nav-link">Бали</a></li>
+                <li><a href="travel-6.html" class="nav-link">Нью-Йорк</a></li>
+                <li><a href="travel-7.html" class="nav-link">Исландия</a></li>
+                <li><a href="about.html" class="nav-link active">О нас</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="add-review-section">
+            <h2 data-translate="about.add.title">Добавить свой отзыв</h2>
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewName" data-translate="about.form.name">Ваше имя:</label>
+                    <input type="text" id="reviewName" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="reviewText" data-translate="about.form.text">Ваш отзыв:</label>
+                    <textarea id="reviewText" required rows="5" placeholder="Расскажите о своих путешествиях..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="reviewAvatar" data-translate="about.form.avatar">Ссылка на фото (необязательно):</label>
+                    <input type="text" id="reviewAvatar" placeholder="https://example.com/photo.jpg">
+                </div>
+                <button type="submit" class="submit-btn" data-translate="about.form.submit">Опубликовать</button>
+            </form>
+        </section>
+
+        <section class="team-section">
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Дьякова Наталия. My Travel Diary</p>
+    </footer>
+</body>
+</html>
