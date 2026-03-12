@@ -36,6 +36,13 @@
     flex: 1;
 }
 
+/* Hide nav-list on mobile by default */
+@media (max-width: 479px) {
+    .nav-list {
+        display: none;
+    }
+}
+
 .nav-link {
     color: var(--white);
     text-decoration: none;
