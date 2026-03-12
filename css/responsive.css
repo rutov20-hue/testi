@@ -1,7 +1,207 @@
 /* Responsive Design - Mobile First Approach */
 
-/* Mobile Styles (default, < 768px) */
-@media (max-width: 767px) {
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 479px) {
+    /* Container padding */
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Typography - smaller for tiny screens */
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Navigation - Compact mobile menu */
+    .navigation {
+        padding: 0.75rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    /* Mobile menu button - always visible */
+    .mobile-menu-btn {
+        display: block;
+        background: var(--gradient-primary);
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        line-height: 1;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Navigation list - hidden by default */
+    .nav-list {
+        display: none !important;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1rem;
+        overflow-y: auto;
+        z-index: 99;
+    }
+    
+    /* Show menu when active */
+    .nav-list.active {
+        display: flex !important;
+    }
+    
+    .nav-link {
+        padding: 0.75rem;
+        text-align: center;
+        border-radius: 8px;
+        margin: 0.25rem 0;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--light-pink);
+        color: var(--primary-pink);
+    }
+    
+    /* Hero section - more compact */
+    .hero {
+        padding: 1.5rem 0.75rem;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        margin-bottom: 1rem;
+    }
+    
+    .intro {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    
+    /* Travel cards - Single column with better spacing */
+    .travel-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .travel-card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .card-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        margin-top: 0.75rem;
+    }
+    
+    /* World map - mobile optimized */
+    .world-map-section {
+        padding: 1rem 0.75rem;
+        margin: 1rem 0;
+    }
+    
+    .world-map-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .map-container {
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .world-map {
+        height: 250px;
+        width: 100%;
+    }
+    
+    .marker {
+        r: 8;
+        cursor: pointer;
+    }
+    
+    .marker:active {
+        r: 12;
+    }
+    
+    .map-hint {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        color: var(--text-gray);
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 1.5rem 0.75rem;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+}
+
+/* Small Mobile (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
     /* Typography adjustments */
     h1 {
         font-size: 2rem;
@@ -15,9 +215,14 @@
         font-size: 1.25rem;
     }
     
-    /* Navigation - Vertical layout */
+    /* Navigation - Horizontal but scrollable */
     .navigation {
         padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .nav-container {
@@ -26,19 +231,32 @@
     }
     
     .logo-image {
-        height: 60px;
+        height: 50px;
     }
     
     .nav-list {
-        flex-direction: column;
+        display: flex;
+        overflow-x: auto;
         gap: 0.5rem;
-        align-items: center;
+        padding: 0.5rem 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav-list::-webkit-scrollbar {
+        display: none;
     }
     
     .nav-link {
-        display: block;
-        width: 100%;
-        text-align: center;
+        white-space: nowrap;
+        padding: 0.6rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        min-width: fit-content;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
     }
     
     /* Hero section */
@@ -50,39 +268,41 @@
     .travel-cards {
         grid-template-columns: 1fr;
         padding: 2rem 1rem;
+        gap: 2rem;
     }
     
-    /* Photo gallery - Single column */
-    .photo-gallery {
-        grid-template-columns: 1fr;
+    .card-image {
+        height: 220px;
     }
     
-    .gallery-image {
-        height: 250px;
+    /* World map */
+    .world-map-section {
+        padding: 1.5rem 1rem;
     }
     
-    /* Travel detail */
-    .travel-detail {
-        padding: 1rem;
+    .world-map {
+        height: 300px;
     }
     
-    .travel-meta {
-        flex-direction: column;
-        gap: 0.5rem;
+    .marker {
+        r: 10;
     }
     
-    /* Card meta */
-    .card-meta {
-        flex-direction: column;
-        gap: 0.25rem;
+    .marker:hover {
+        r: 14;
     }
 }
 
 /* Tablet Styles (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+    
     /* Navigation - Horizontal but compact */
     .nav-list {
         gap: 1rem;
+        display: flex;
     }
     
     /* Travel cards - Two columns */
@@ -98,6 +318,14 @@
 
 /* Desktop Styles (>= 1024px) */
 @media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .nav-list {
+        display: flex;
+    }
+    
     /* Travel cards - Three columns on large screens */
     .travel-cards {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -125,16 +353,40 @@
     }
 }
 
-
-/* Модальное окно на мобильных устройствах */
+/* Photo gallery mobile optimization */
 @media (max-width: 767px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .gallery-image {
+        height: 250px;
+        border-radius: 12px;
+    }
+    
+    /* Modal optimization for mobile */
     .modal-content {
         width: 95%;
+        max-width: 95vw;
+        max-height: 90vh;
+        margin: 5vh auto;
+        border-radius: 15px;
     }
     
     .modal-close {
-        font-size: 35px;
-        top: -45px;
+        font-size: 30px;
+        top: -40px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+    
+    .modal img {
+        max-height: 70vh;
+        border-radius: 10px;
     }
 }
 
@@ -144,71 +396,118 @@
     }
 }
 
-
-/* Карта на мобильных устройствах */
+/* Travel detail page mobile optimization */
 @media (max-width: 767px) {
-    .world-map-section {
+    .travel-detail {
         padding: 1rem;
+        margin: 0;
+    }
+    
+    .travel-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .travel-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .travel-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .travel-location,
+    .travel-date {
+        font-size: 0.9rem;
+    }
+    
+    .travel-content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .travel-content p {
+        margin-bottom: 1rem;
+    }
+    
+    .recommendations {
+        padding-left: 1rem;
+    }
+    
+    .recommendations li {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .back-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
         margin: 2rem auto;
-    }
-    
-    .world-map-section h2 {
-        font-size: 1.5rem;
-    }
-    
-    .map-container {
-        padding: 1rem;
-    }
-    
-    .marker {
-        r: 10;
-    }
-    
-    .marker:hover {
-        r: 14;
+        display: block;
+        width: fit-content;
     }
 }
 
-
-/* Theme Toggle Button - Responsive */
-@media (max-width: 767px) {
+/* Theme Toggle Button - Mobile optimized */
+@media (max-width: 479px) {
     .theme-toggle {
         width: 50px;
         height: 50px;
         bottom: 20px;
         right: 20px;
         font-size: 1.2rem;
+        position: fixed !important;
+        z-index: 999;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 480px) and (max-width: 767px) {
     .theme-toggle {
         width: 55px;
         height: 55px;
         bottom: 25px;
         right: 25px;
         font-size: 1.3rem;
+        position: fixed !important;
+        z-index: 999;
     }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+    .theme-toggle {
+        width: 60px;
+        height: 60px;
+        bottom: 30px;
+        right: 30px;
+        font-size: 1.4rem;
+        position: fixed !important;
+        z-index: 999;
+    }
+}
 
-/* Language Toggle Button - Responsive */
-@media (max-width: 767px) {
+/* Language Toggle Button - Mobile optimized */
+@media (max-width: 479px) {
     .lang-selector {
         bottom: 80px;
         right: 20px;
+        position: fixed !important;
+        z-index: 999;
     }
     
     .lang-toggle {
-        bottom: 80px;
-        right: 20px;
         padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
     }
     
     .lang-menu {
-        bottom: 60px;
+        bottom: 55px;
         min-width: 130px;
+        border-radius: 12px;
     }
     
     .lang-option {
@@ -221,20 +520,126 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 480px) and (max-width: 767px) {
     .lang-selector {
         bottom: 90px;
         right: 25px;
+        position: fixed !important;
+        z-index: 999;
     }
     
     .lang-toggle {
-        bottom: 90px;
-        right: 25px;
         padding: 0.7rem 1.1rem;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     
     .lang-menu {
         bottom: 65px;
+        min-width: 140px;
+    }
+    
+    .lang-option {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+    }
+    
+    .lang-flag {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .lang-selector {
+        bottom: 100px;
+        right: 30px;
+        position: fixed !important;
+        z-index: 999;
+    }
+    
+    .lang-toggle {
+        bottom: 100px;
+        right: 30px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .lang-menu {
+        bottom: 70px;
+    }
+}
+
+/* Scroll to top button - Mobile optimized */
+@media (max-width: 479px) {
+    .scroll-top {
+        width: 50px;
+        height: 50px;
+        bottom: 150px;
+        right: 20px;
+        font-size: 1.3rem;
+        position: fixed !important;
+        z-index: 999;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .scroll-top {
+        width: 55px;
+        height: 55px;
+        bottom: 160px;
+        right: 25px;
+        font-size: 1.4rem;
+        position: fixed !important;
+        z-index: 999;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 767px) {
+    /* Larger touch targets */
+    button, .nav-link, .card-button, .lang-option {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Better spacing for touch */
+    .nav-link {
+        margin: 0.25rem;
+    }
+    
+    /* Prevent zoom on input focus (iOS) */
+    input, textarea, select {
+        font-size: 16px;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Better tap highlights */
+    * {
+        -webkit-tap-highlight-color: rgba(232, 180, 188, 0.3);
+    }
+}
+
+
+/* Dark theme mobile navigation */
+@media (max-width: 479px) {
+    body.dark-theme .navigation {
+        background: rgba(26, 26, 26, 0.95);
+    }
+    
+    body.dark-theme .nav-list {
+        background: rgba(26, 26, 26, 0.98);
+    }
+    
+    body.dark-theme .nav-link {
+        color: #FFFFFF;
+    }
+    
+    body.dark-theme .nav-link:hover,
+    body.dark-theme .nav-link.active {
+        background: rgba(232, 180, 188, 0.3);
+        color: #E8B4BC;
     }
 }

@@ -24,22 +24,22 @@
 
 /* Dark Theme */
 body.dark-theme {
-    --primary-pink: #D4949E;
+    --primary-pink: #E8B4BC;
     --light-pink: #3A2E30;
-    --sky-blue: #7A9AAA;
+    --sky-blue: #B8D8E8;
     --light-blue: #2E3A42;
     
-    --gradient-primary: linear-gradient(135deg, #D4949E, #7A9AAA);
-    --gradient-button: linear-gradient(90deg, #D4949E, #7A9AAA);
+    --gradient-primary: linear-gradient(135deg, #E8B4BC, #B8D8E8);
+    --gradient-button: linear-gradient(90deg, #E8B4BC, #B8D8E8);
     
     --white: #1A1A1A;
     --light-bg: #2A2A2A;
-    --text-dark: #E0E0E0;
-    --text-gray: #B0B0B0;
-    --bg-gradient: linear-gradient(135deg, #1A1520 0%, #1A2530 50%, #1A1520 100%);
+    --text-dark: #FFFFFF;
+    --text-gray: #CCCCCC;
+    --bg-gradient: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 50%, #1A1A1A 100%);
     
-    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
 /* Base Styles */
