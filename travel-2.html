@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="css/main.css?v=4">
     <link rel="stylesheet" href="css/components.css?v=4">
     <link rel="stylesheet" href="css/responsive.css?v=4">
+    <link rel="stylesheet" href="css/mobile-optimizations.css">
     <script src="js/gallery.js" defer></script>
     <script src="js/language.js" defer></script>
     <script src="js/complete-translations.js" defer></script>
     <script src="js/theme-and-animations.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
 </head>
 <body>
     <nav class="navigation">
@@ -19,7 +21,10 @@
             <a href="index.html" class="nav-logo">
                 <img src="images/logo.png" alt="My Travel Diary Logo" class="logo-image">
             </a>
-            <ul class="nav-list">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="nav-list" id="navList">
                 <li><a href="index.html" class="nav-link">Главная</a></li>
                 <li><a href="travel-1.html" class="nav-link">Париж</a></li>
                 <li><a href="travel-2.html" class="nav-link active">Швейцария</a></li>
