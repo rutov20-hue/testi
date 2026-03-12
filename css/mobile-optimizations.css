@@ -1,0 +1,277 @@
+/* Дополнительные мобильные оптимизации */
+
+/* Общие мобильные стили */
+@media (max-width: 767px) {
+    /* Улучшение производительности */
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Отключение анимаций на слабых устройствах */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    /* Оптимизация скролла */
+    body {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+    }
+    
+    /* Предотвращение зума при фокусе на input */
+    input, textarea, select {
+        font-size: 16px !important;
+        transform: translateZ(0);
+    }
+    
+    /* Улучшение тач-взаимодействий */
+    button, .nav-link, .card-button, .lang-option, .theme-toggle {
+        -webkit-tap-highlight-color: rgba(232, 180, 188, 0.3);
+        touch-action: manipulation;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Оптимизация изображений */
+    img {
+        max-width: 100%;
+        height: auto;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Улучшение читаемости текста */
+    p, li, span {
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+    
+    /* Оптимизация карточек путешествий */
+    .travel-card {
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-content {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-meta {
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-location,
+    .card-date {
+        font-size: 0.85rem;
+        color: var(--text-gray);
+    }
+    
+    .card-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .card-button {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero .intro {
+        font-size: 0.9rem;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .navigation {
+        padding: 0.5rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+}
+
+/* Landscape ориентация на мобильных */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        padding: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .navigation {
+        padding: 0.75rem;
+    }
+    
+    .nav-list {
+        gap: 0.25rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Оптимизация для устройств с высоким DPI */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-image,
+    .member-avatar img,
+    .card-image {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Темная тема на мобильных */
+@media (max-width: 767px) {
+    body.dark-theme .navigation {
+        background: rgba(26, 26, 26, 0.95);
+    }
+    
+    body.dark-theme .nav-list {
+        background: rgba(26, 26, 26, 0.98);
+    }
+    
+    body.dark-theme .nav-link:hover {
+        background: rgba(232, 180, 188, 0.2);
+    }
+    
+    body.dark-theme .travel-card {
+        background: rgba(40, 40, 40, 0.9);
+    }
+    
+    body.dark-theme .card-content {
+        color: var(--text-dark);
+    }
+}
+
+/* Улучшения для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .navigation {
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .travel-card,
+    .add-review-section,
+    .team-member {
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* Фикс для 100vh на iOS */
+    .hero {
+        min-height: calc(100vh - 100px);
+        min-height: calc(100dvh - 100px);
+    }
+}
+
+/* Улучшения для Android Chrome */
+@media (max-width: 767px) {
+    /* Оптимизация рендеринга */
+    .travel-card,
+    .team-member,
+    .add-review-section {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+    
+    /* Улучшение производительности анимаций */
+    .nav-link,
+    .card-button,
+    .submit-btn,
+    .delete-btn {
+        will-change: transform;
+    }
+}
+
+/* Accessibility улучшения для мобильных */
+@media (max-width: 767px) {
+    /* Увеличенные области нажатия */
+    .mobile-menu-btn {
+        padding: 0.75rem;
+        margin: -0.25rem;
+    }
+    
+    .theme-toggle,
+    .lang-toggle {
+        padding: 0.75rem;
+    }
+    
+    /* Улучшенный контраст для мелкого текста */
+    .card-meta,
+    .travel-meta {
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+    
+    /* Лучшая видимость фокуса */
+    button:focus,
+    input:focus,
+    textarea:focus,
+    .nav-link:focus {
+        outline: 2px solid var(--primary-pink);
+        outline-offset: 2px;
+    }
+}
+
+/* Оптимизация для медленных соединений */
+@media (max-width: 767px) and (prefers-reduced-data: reduce) {
+    /* Отключение фоновых изображений */
+    .hero,
+    .travel-card,
+    .team-member {
+        background-image: none !important;
+    }
+    
+    /* Упрощение теней */
+    .travel-card,
+    .team-member,
+    .add-review-section {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Отключение backdrop-filter */
+    .navigation,
+    .nav-list,
+    .travel-card,
+    .team-member,
+    .add-review-section {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
