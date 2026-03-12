@@ -80,15 +80,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Быстрая плавная прокрутка наверх при клике
     scrollTopBtn.addEventListener('click', function() {
-        const scrollDuration = 400; // Длительность анимации в миллисекундах (быстрая)
-        const scrollStep = -window.scrollY / (scrollDuration / 15);
-        
-        const scrollInterval = setInterval(function() {
-            if (window.scrollY !== 0) {
-                window.scrollBy(0, scrollStep);
-            } else {
-                clearInterval(scrollInterval);
-            }
-        }, 15);
+        // Используем встроенный метод для мгновенной прокрутки на мобильных
+        if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback для старых браузеров - очень быстрая анимация
+            const scrollDuration = 200; // Очень быстро для мобильных
+            const scrollStep = -window.scrollY / (scrollDuration / 15);
+            
+            const scrollInterval = setInterval(function() {
+                if (window.scrollY !== 0) {
+                    window.scrollBy(0, scrollStep);
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, 15);
+        }
     });
 });
