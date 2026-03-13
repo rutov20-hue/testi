@@ -38,7 +38,7 @@
         flex-wrap: nowrap !important;
         justify-content: flex-start !important;
         align-items: stretch !important;
-        padding: 70px 15px 15px 15px !important;
+        padding: 60px 10px 10px 10px !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
         z-index: 1000 !important;
@@ -59,15 +59,15 @@
         flex: none !important;
     }
     
-    /* Force links to be compact blocks */
+    /* Force links to be VERY compact blocks */
     .nav-list .nav-link {
         display: block !important;
         width: 100% !important;
-        padding: 0.9rem 1rem !important;
+        padding: 0.7rem 0.5rem !important;
         text-align: center !important;
-        border-radius: 8px !important;
-        margin: 0.3rem 0 !important;
-        font-size: 1rem !important;
+        border-radius: 6px !important;
+        margin: 0.2rem 0 !important;
+        font-size: 0.95rem !important;
         color: #333 !important;
         background: rgba(232, 180, 188, 0.15) !important;
         text-decoration: none !important;
@@ -75,6 +75,7 @@
         min-width: auto !important;
         flex: none !important;
         box-sizing: border-box !important;
+        line-height: 1.2 !important;
     }
     
     .nav-list .nav-link:hover,
@@ -82,6 +83,33 @@
     .nav-list .nav-link.active {
         background: rgba(232, 180, 188, 0.4) !important;
         color: #E8B4BC !important;
+    }
+    
+    /* FIXED BUTTONS - Force them to stay in place */
+    .theme-toggle,
+    .lang-toggle,
+    .lang-selector,
+    .scroll-top-btn {
+        position: fixed !important;
+        z-index: 998 !important;
+        transform: translateZ(0) !important;
+        -webkit-transform: translateZ(0) !important;
+    }
+    
+    .theme-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    .lang-toggle,
+    .lang-selector {
+        bottom: 80px !important;
+        right: 20px !important;
+    }
+    
+    .scroll-top-btn {
+        bottom: 150px !important;
+        right: 20px !important;
     }
     
     /* Dark theme */
@@ -99,5 +127,49 @@
     body.dark-theme .nav-list .nav-link.active {
         background: rgba(232, 180, 188, 0.3) !important;
         color: #E8B4BC !important;
+    }
+}
+
+
+/* SUPER FIX for buttons on mobile - absolutely force fixed positioning */
+@media (max-width: 767px) {
+    body .theme-toggle,
+    body .lang-toggle,
+    body .lang-selector,
+    body .scroll-top-btn,
+    html body .theme-toggle,
+    html body .lang-toggle,
+    html body .lang-selector,
+    html body .scroll-top-btn {
+        position: fixed !important;
+        z-index: 9999 !important;
+        transform: translate3d(0, 0, 0) !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
+    }
+    
+    body .theme-toggle,
+    html body .theme-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    body .lang-toggle,
+    body .lang-selector,
+    html body .lang-toggle,
+    html body .lang-selector {
+        bottom: 80px !important;
+        right: 20px !important;
+    }
+    
+    body .scroll-top-btn,
+    html body .scroll-top-btn {
+        bottom: 150px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
     }
 }
