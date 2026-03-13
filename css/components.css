@@ -495,3 +495,9 @@ body.dark-theme .lang-option.selected {
     background: var(--gradient-primary);
     color: white;
 }
+
+
+/* Mobile menu button - hidden by default */
+.mobile-menu-btn {
+    display: none;
+}
