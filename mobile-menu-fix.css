@@ -1,0 +1,131 @@
+/* MOBILE MENU FIX - Load this last! */
+
+/* Hide mobile button by default */
+.mobile-menu-btn {
+    display: none !important;
+}
+
+/* Show mobile button on small screens */
+@media (max-width: 767px) {
+    .mobile-menu-btn {
+        display: block !important;
+        position: relative !important;
+        z-index: 1002 !important;
+        background: linear-gradient(135deg, #E8B4BC, #B8D8E8) !important;
+        border: none !important;
+        font-size: 1.5rem !important;
+        cursor: pointer !important;
+        padding: 0.5rem !important;
+        color: white !important;
+        border-radius: 8px !important;
+        width: 45px !important;
+        height: 45px !important;
+        line-height: 1 !important;
+    }
+    
+    /* Navigation list - FORCE vertical layout */
+    .nav-list {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: white !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        padding: 60px 10px 10px 10px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        z-index: 1000 !important;
+        gap: 0 !important;
+    }
+    
+    /* Show menu when active */
+    .nav-list.active {
+        display: flex !important;
+    }
+    
+    /* Force list items to be full width */
+    .nav-list li {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: none !important;
+    }
+    
+    /* Force links to be VERY compact blocks */
+    .nav-list .nav-link {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.7rem 0.5rem !important;
+        text-align: center !important;
+        border-radius: 6px !important;
+        margin: 0.2rem 0 !important;
+        font-size: 0.95rem !important;
+        color: #333 !important;
+        background: rgba(232, 180, 188, 0.15) !important;
+        text-decoration: none !important;
+        white-space: normal !important;
+        min-width: auto !important;
+        flex: none !important;
+        box-sizing: border-box !important;
+        line-height: 1.2 !important;
+    }
+    
+    .nav-list .nav-link:hover,
+    .nav-list .nav-link:active,
+    .nav-list .nav-link.active {
+        background: rgba(232, 180, 188, 0.4) !important;
+        color: #E8B4BC !important;
+    }
+    
+    /* FIXED BUTTONS - Force them to stay in place */
+    .theme-toggle,
+    .lang-toggle,
+    .lang-selector,
+    .scroll-top-btn {
+        position: fixed !important;
+        z-index: 998 !important;
+        transform: translateZ(0) !important;
+        -webkit-transform: translateZ(0) !important;
+    }
+    
+    .theme-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    .lang-toggle,
+    .lang-selector {
+        bottom: 80px !important;
+        right: 20px !important;
+    }
+    
+    .scroll-top-btn {
+        bottom: 150px !important;
+        right: 20px !important;
+    }
+    
+    /* Dark theme */
+    body.dark-theme .nav-list {
+        background: #1A1A1A !important;
+    }
+    
+    body.dark-theme .nav-list .nav-link {
+        color: #FFFFFF !important;
+        background: rgba(40, 40, 40, 0.9) !important;
+    }
+    
+    body.dark-theme .nav-list .nav-link:hover,
+    body.dark-theme .nav-list .nav-link:active,
+    body.dark-theme .nav-list .nav-link.active {
+        background: rgba(232, 180, 188, 0.3) !important;
+        color: #E8B4BC !important;
+    }
+}
