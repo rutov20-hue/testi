@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggle.className = 'theme-toggle';
     themeToggle.setAttribute('aria-label', 'Переключить тему');
     themeToggle.innerHTML = '🌙';
+    // FORCE fixed positioning with inline styles
+    themeToggle.style.cssText = 'position: fixed !important; z-index: 9999 !important;';
     document.body.appendChild(themeToggle);
     
     // Проверяем сохраненную тему
@@ -67,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTopBtn.className = 'scroll-top-btn';
     scrollTopBtn.setAttribute('aria-label', 'Прокрутить наверх');
     scrollTopBtn.innerHTML = '↑';
+    // FORCE fixed positioning with inline styles
+    scrollTopBtn.style.cssText = 'position: fixed !important; z-index: 9999 !important;';
     document.body.appendChild(scrollTopBtn);
     
     // Показываем/скрываем кнопку при прокрутке

@@ -285,12 +285,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Создаем контейнер для селектора языка
     const langSelector = document.createElement('div');
     langSelector.className = 'lang-selector';
+    // FORCE fixed positioning with inline styles
+    langSelector.style.cssText = 'position: fixed !important; z-index: 9999 !important;';
     
     // Создаем кнопку переключения языка
     const langToggle = document.createElement('button');
     langToggle.className = 'lang-toggle';
     langToggle.setAttribute('aria-label', 'Switch language');
     langToggle.innerHTML = '🌐 Язык';
+    // FORCE fixed positioning with inline styles
+    langToggle.style.cssText = 'position: fixed !important; z-index: 9999 !important;';
     
     // Создаем выпадающее меню
     const langMenu = document.createElement('div');
